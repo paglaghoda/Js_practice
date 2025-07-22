@@ -1,2 +1,2 @@
-# Js_practice
+# JavaScript
 Learning &amp; Practicing JavaScript
