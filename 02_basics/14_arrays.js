@@ -33,6 +33,15 @@ console.log(myArr)
 console.log(myArr.includes(1))
 console.log(myArr)
 
+//Shift and UnShift
+console.log("Shifting: ",myArr.shift()) //Basically shift works as pop()
+console.log(myArr)
+
+console.log("UnShifting: ",myArr.unshift(1)) 
+//and unshift returns the length of the new array after adding an element at the start :)
+//Kya faltu tarika hai; shift me popped item arra hai and unshift me length
+console.log(myArr)
+
 
 //Finally accessing elements from an element: Slicing and Splicing
 
