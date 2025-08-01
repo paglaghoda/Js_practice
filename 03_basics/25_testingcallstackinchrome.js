@@ -3,7 +3,7 @@ let myBetterHalf="Her";
 
 (() => {console.log(`${myName} loves ${myBetterHalf}`)}) ()
 
-//Checking nested functions
+//Checking nested functions in Chrome console breakpoint playing
 
 function funcOne(){console.log(`Function one called and ${funcTwo()}`)};
 function funcTwo(){console.log("Function two called", funcThree())};
