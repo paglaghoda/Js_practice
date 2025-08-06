@@ -30,3 +30,4 @@ for (const [key, value] in meraDusraMap){//testing for-in loop for Maps
     console.log(key, value)
 } //Output is empty becoz Map itself is not iteratable
 
+//sorry bhai aaj ek day off
