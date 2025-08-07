@@ -6,7 +6,7 @@ const myArr=["Omkar",19,"Trying to grow!"]
 //     age: 19,
 //     tagline: "Trying to grow!"
 // } Not for object somehow, will need to confirm this tho
-
+// Update on this guyzzz: For objects aapko For-in loop lagana padega, not For-of!
 
 for (const oneArr of myArr){
     console.log(`Element is ${oneArr}`)
