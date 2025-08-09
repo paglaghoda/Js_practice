@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domy 2 bbg!</title>
+    <style>
+    </style>
+</head>
+<body class="bhai" id="did" >
+    <div class="bhai1" id="didi">
+        <div class="bhai2">Monday</div>
+        <div class="bhai2">Tuesday</div>
+        <div class="bhai2">Wednesday</div>
+        <div class="bhai2">Thursday</div>
+        <div class="bhai2">Friday</div>
+        <div class="bhai2">Saturday</div>
+        <div class="bhai2">Sunday</div>
+    </div>
+</body>
+<script>
+
+    //ACCESSING ELEMENTS:
+
+    //QuerySelector gives only the first element with the selected classname
+    const AccessQuery = document.querySelector('.bclass')
+    console.log(AccessQuery)
+    
+    //"Query selector All" gives all the element with the same classname in the form of Nodelist
+    const AccessAllQuery = document.querySelectorAll('.bhai')
+    console.log(AccessAllQuery)
+        //As it's nodelist
+    const newArr = Array.from(AccessAllQuery)
+    console.log(newArr.forEach( element => element.innerText="Bhai"))
+        //Waise toh Nodelist me directly bhi forEach lag jata hai so, need not convert it to an Array first
+
+    //GetElementbyID - for getting element by ID - ID unique hoti hai
+    console.log(document.getElementById('didi'))
+    
+    //Same for GetElementsClassName - but it returns a HTML Collection jisme forEach tak nhi hai :) 
+    console.log(document.getElementsByClassName('bhai'))
+
+    //Even by getElementsByTagName, basically HTML tag like 'ul' - returns HTMLColl
+    // & getElementsByName (for form inputs) - returns Nodelist
+
+    // Accessing Children nodes:
+    const bhai = document.getElementById('didi')
+    console.log(bhai.children)
+
+    const myArr = Array.from(bhai.children)
+    console.log(myArr)
+    
+    myArr.forEach( item => item.innerText = "Bhai")
+    
+    const herArr = Array.from(bhai.childNodes)
+    console.log(herArr)
+
+    console.log(bhai.firstElementChild.innerText="Mon")
+    console.log(bhai.lastElementChild.innerText="Sun")
+
+    //Accessing Child Nodes: iss baar samajh ke :)
+    //We can find parent element as well as Parent node
+    const meraBaccha = document.getElementById('didi')
+    const mereBacche = meraBaccha.children
+    const mereArr = Array.from(mereBacche)
+    console.log(mereArr.forEach( item => item.innerText="Omkar"))
+
+    //Waise for accessing the elements side by side like Sibling elements, you can use ".nextElementSibling"
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+</script>
+</html>

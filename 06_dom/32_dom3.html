@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhaiiii</title>
+    <style>
+        #bodybhai {
+            background-color: #252525;
+            color: #fff;
+        }
+    </style>
+</head>
+<body id="bodybhai">
+    
+</body>
+<script>
+    const divy = document.createElement('div')
+    //Waise just create karne se element visible nhi ho jata hai
+    console.log(divy)
+
+    divy.setAttribute('title', "Omkar Bhai")
+    divy.className="TopD"
+    divy.id=(Math.ceil(Math.random()*10+1))
+
+    divy.style.backgroundColor="Pink"
+    divy.style.color="purple"
+    divy.style.padding="20px"
+    divy.style.fontSize='24px'
+    divy.style.borderRadius='10px'
+    divy.style.fontWeight='400'
+
+    //One way to add content inside
+    // divy.textContent="Omkar"; Controversial: Termed as inefficient but karna easy hai
+
+    //Another way
+    const newText = document.createTextNode("Omkar Bhai!")
+    divy.appendChild(newText)
+
+    //Finally attaching content to view the text on Webpage
+    document.body.appendChild(divy)
+
+</script>
+</html>
