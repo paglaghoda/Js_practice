@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editing & Removing elements in DOM - Episode 33</title>
+</head>
+<body style="background-color: #252525; color: #fff;">
+    <ul class="mylist">
+        <li>Omkar</li>
+    </ul>
+</body>
+
+<script>
+
+    function appendingList(itemToBeAdded){
+        const li = document.createElement('li')
+        li.innerText=itemToBeAdded;
+        const q1 = document.querySelector('.mylist')
+        q1.appendChild(li);
+    } //This function works and does the job but there's one problem
+    // This approach makes the innerText function traverse the DOM Tree => wasting time
+    appendingList("Bhuru")
+
+    //Instead, Use AppendChild method with CreateTextNode to insert Text
+    function updatingList(item){
+        const li = document.createElement('li') //1. Creating element
+        li.appendChild(document.createTextNode(item)) //2. Adding the text
+        document.querySelector('.mylist').appendChild(li) //3. Attaching the text onto the webpage
+    }
+    updatingList('Bhai')
+
+    //Editing the list
+    const edit1 = document.querySelector('li:last-child')
+    function editList(valToAdd) {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(valToAdd))
+        edit1.replaceWith(li)
+    }
+    editList("Bhuru Meow")
+    //Good & just FYI, for adding text you can also use innerHTML, outerHTML, and other methods...
+
+    //Removing an element
+    const toBeDel = document.querySelector('li:last-child')
+    toBeDel.remove()
+    
+</script>
+
+</html>
