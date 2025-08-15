@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing onClick Events</title>
+</head>
+<body style="background-color: #151515; color: white">
+    <h1>Hi, I'm Omkar!</h1>
+    <h2>Meow meow!</h2>
+    <ul id="images">
+        <li><img class="image" id="img1" src="https://images.pexels.com/photos/30664998/pexels-photo-30664998.jpeg" alt="Miami Vibes"></li>
+        <li><img class="image" id="img2" src="https://images.pexels.com/photos/8542162/pexels-photo-8542162.jpeg" alt="Pizza"></li>
+        <li><img class="image" id="img3" src="https://images.pexels.com/photos/33433152/pexels-photo-33433152.jpeg" alt="Peacful House"></li>
+        <li><img class="image" id="img4" src="https://images.pexels.com/photos/17004872/pexels-photo-17004872.jpeg" alt="Beach"></li>
+        <li><img class="image" id="img5" src="https://images.pexels.com/photos/33386992/pexels-photo-33386992.jpeg" alt="And I'm feeling Good"></li>
+        <li><a id ="link" href="https://news.ycombinator.com/news" style="color: white;">Hacker News</a></li>
+    </ul> 
+</body>
+<script>
+    //Applying some css to images
+    const images = document.querySelectorAll(".image");
+    images.forEach( (each) => {
+        each.style.height="200px";
+        each.style.width="200px";
+    } )
+
+    //one way to do onClick (not the best way tho)
+    // document.getElementById('img2').onclick = () => alert('Meow meow')
+
+    //Better way is:
+    document.getElementById('img2').addEventListener('click', (e) => {
+        console.log(e)
+        alert('Meow meow', false)
+    })
+    
+    // Nice but now we're gonna try bubbling and capturing bbg!
+    document.getElementById('img2').addEventListener('click', (e) => {
+        console.log("Image 2 Clicked")
+    }, false)
+    //OP:
+    // Image 2 Clicked
+    // UL Clicked
+    
+    document.getElementById('images').addEventListener('click', (e) => {
+        console.log("UL Clicked")
+    }, false)
+
+    //This is bubbling coz the event listener first listens to the bottom-most element's event first 
+    // then the top parent element's event
+
+    //Now trying Capturing
+    document.getElementById('img2').addEventListener('click', (e) => {
+        console.log("Image 2 Clicked")
+    }, true)
+    
+    document.getElementById('images').addEventListener('click', (e) => {
+            console.log("UL Clicked")
+        }, true)
+        //Output: Exactly reverse of Bubbling:
+        // UL Clicked
+    // Image 2 Clicked
+    
+    //Stop Propogation in order to stop bubbling to the top element
+    document.getElementById('img2').addEventListener('click', (e) => {
+        console.log("Image 2 Clicked")
+        e.stopPropagation()
+    }, false)
+
+    document.getElementById('images').addEventListener('click', (e) => {
+        console.log("UL Clicked")
+    }, false)
+    //OP: Image 2 Clicked
+    //Basically, it captures the event of that particular element
+
+    // Prevent Default
+    const link = document.getElementById('link');
+    link.addEventListener('click', (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        console.log('Hacker News Clicked')
+    })
+
+    //Removing Elements using event Listener
+    const image = document.querySelector('#images')
+    image.addEventListener('click', (e) => {
+        if (e.target.parentNode.tagName==="LI") { //This if statement ensures that outside of the IMG tag, nothing gets removed by mistakenly
+            e.target.parentNode.remove()
+        }
+    })
+
+    //You can also use the various properties from the event listener to access info like Alt Key, Shift Key pressing
+    // or the screen's X & Y position and client's x y position while clicking
+
+    document.querySelector('#img1').addEventListener('click', (e) => {
+        console.log(e.altKey)
+        //Similarly more can be used to make something like a Typing Speed testing website
+    })
+
+</script>
+</html>
