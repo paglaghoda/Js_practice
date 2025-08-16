@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episode 36 part 2</title>
+</head>
+<body>
+    <h1 class="merah1">Hi bbg!</h1>
+    <h2 class="dusra">Meow meow!</h2>
+    <button class="start">Start Me</button>
+    <button class="stopme">Stop Me</button>
+</body>
+<script>
+
+    // const myFunc = () => {
+    //     console.log(new Date(Date.now()).toLocaleTimeString())
+    // }
+    
+    // document.querySelector('.start').addEventListener('click', () => {
+    //     setInterval(myFunc, 1000)
+    // })
+
+    // document.querySelector('.stopme').addEventListener('click', () => {
+    //     clearInterval()
+    // })
+
+    //Solved using Grok, good job groky!
+    const myFunc = () => {
+    console.log(new Date().toLocaleTimeString());
+    };
+
+    let intervalId;
+
+    document.querySelector('.start').addEventListener('click', () => {
+        if (!intervalId) {
+            intervalId = setInterval(myFunc, 1000);
+            console.log('Interval ID assigned:', intervalId); // Log the ID for clarity
+        }
+    });
+
+    document.querySelector('.stopme').addEventListener('click', () => {
+        clearInterval(intervalId);
+        intervalId = null;
+        console.log('Interval stopped, ID reset');
+    });
+
+</script>
+</html>

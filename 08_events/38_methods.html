@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episode 38</title>
+</head>
+<body>
+    <h1 class="pehlah1">Omkar Bhai!</h1>
+    <h2 class="dusra">Meow meow!</h2>
+    <button class="button">Meow me</button>
+</body>
+<script>
+    document.querySelector('.button').addEventListener('click', (e) => alert('Meow meow'))
+
+    setTimeout(() => {
+        // console.log("Hi Bhuru!")
+    }, 2000);
+
+    const meraFunc = () => {
+        document.querySelector('.dusra').innerHTML = "Mera Bhuru!"
+        console.log("Bhuri")}
+
+    const pehlaTimeout = setTimeout(meraFunc, 2000);
+
+    //You can also stop a timeout just by passing a reference of the setTimeout to stopTimeout
+    // clearTimeout(pehlaTimeout)
+
+    document.querySelector('.button').addEventListener('click', () => {
+        clearTimeout(pehlaTimeout)
+        console.log("Bhuri Stopped!")
+    })
+    //So basically here we studied setTimeout and clearTimeout
+    //and setTimeout basically executes a function after a period of time and clearTimeout stops it.
+</script>
+</html>
