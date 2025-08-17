@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttp Request</title>
+</head>
+<body>
+</body>
+<script>
+     //Let's request data from a server
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', "https://dogapi.dog/api/v2/breeds")
+    //Syntax: xhr.open(method, URL, [async, user, password])
+    //Okay, creating the open method doesn't fetch data directly
+    //For fetching data, you need to explicitly send() the request
+    xhr.responseType='json'
+    xhr.send();
+    //Listening to events: load, error, progress
+    //trying each
+    let responseData;
+    xhr.onload = () => {
+        responseData=xhr.response;
+        console.log(responseData.data[0].attributes.name)
+        if (xhr.status!=200){//200 is nice and everything else means we're fucked
+            alert(`Error aa gya bhai. Err Code ${xhr.status}: ${xhr.statusText}`)
+        } else {
+            alert(`Damn Bro, Got this from the server ${xhr.response}`)
+        }
+    }
+
+
+    
+    xhr.onprogress = () => {
+        if (event.lengthComputable){
+            alert(`We have received ${event.loaded} of total ${event.total}`)
+        } else {
+            alert(`Recieved ${event.loaded} bytes`)
+        }
+        // event.loaded - how many bytes downloaded
+        // event.lengthComputable = true if the server sent Content-Length header
+        // event.total - total number of bytes (if lengthComputable)
+    }
+    
+    xhr.onerror = () => {
+        alert(`Network Error`)
+    }
+</script>
+</html>
