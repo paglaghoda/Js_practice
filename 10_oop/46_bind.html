@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind</title>
+</head>
+<body style="background-color: #262626; color: white;">
+    <button>Click here bbg!</button>
+    
+</body>
+<script>
+    //Testing the bind function that is where are we even using bind
+    //Abhi tak jo samajh me ayya, bind helps us to send the context of this. as a packet kind of
+    //Matlab dekho niche
+
+    class React{
+        constructor(){
+            this.username="Bhuru Boi";
+            this.age=4;
+
+            document
+                .querySelector('button')
+                .addEventListener('click', this.buttonEvent
+                                                        .bind(this)) //This .bind helps the method to
+                                                        // know the context about the parent and current
+        }
+
+        buttonEvent(){
+            console.log("Bhuru Boi button clicked");
+            console.log(`Bhuru's age is ${this.age}`)
+            //OP: Bhuru's age is 4
+        }
+
+    }
+
+    const r1 = new React()
+
+</script>
+</html>
